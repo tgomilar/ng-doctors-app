@@ -1,0 +1,14 @@
+<p>doctor-list works!</p>
+
+<!-- doctor-list.component.html -->
+<!-- <ul>
+  <li *ngFor="let doctor of doctors">{{ doctor.id }} - {{ doctor.name }}</li>
+</ul> -->
+
+<ul>
+  @for (doctor of doctors; track doctor.id) {
+  {{
+    doctor.name
+  }}
+  }
+</ul>
