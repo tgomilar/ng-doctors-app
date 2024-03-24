@@ -7,6 +7,7 @@ export interface Doctor {
   phone: string;
   website: string;
   company: Company;
+  tasks: Task[];
 }
 
 export interface Company {
@@ -26,4 +27,11 @@ export interface Address {
 export interface Geo {
   lat: string;
   lng: string;
+}
+
+export interface Task {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 }

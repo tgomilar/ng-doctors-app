@@ -21,10 +21,10 @@ export class DoctorService {
   }
 
   getDoctorTasks(id: number): Observable<Task[]> {
-    return this.http.get<Task[]>(`${this.apiUrl}/${id}/tasks`);
+    return this.http.get<Task[]>(`${this.apiUrl}/users/${id}/todos`);
   }
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(`${this.apiUrl}/tasks`);
+    return this.http.get<Task[]>(`${this.apiUrl}/todos`);
   }
 }

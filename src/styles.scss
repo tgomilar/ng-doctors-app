@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+$mobile-breakpoint: 600px;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+h1,
+h2,
+h3 {
+  color: mat.get-color-from-palette(mat.$indigo-palette, 800);
+}
+
+.link {
+  color: mat.get-color-from-palette(mat.$indigo-palette, 700);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.mat-button-toggle-checked {
+  background-color: mat.get-color-from-palette(
+    mat.$indigo-palette,
+    50
+  ) !important;
+}
+
+.logo {
+  text-decoration: none;
+  margin-right: auto;
+  margin-left: 0;
+  color: mat.get-color-from-palette(mat.$indigo-palette, 700);
+}
+.sidenav-container {
+  height: 100vh;
+}
+mat-sidenav {
+  padding: 1rem;
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo {
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+}
+
+mat-toolbar {
+  .mat-toolbar-row {
+    padding: 0 1rem;
+  }
+  .logo {
+    color: mat.get-color-from-palette(mat.$indigo-palette, 100);
+  }
+}

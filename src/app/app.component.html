@@ -1,1 +1,33 @@
-<router-outlet />
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="over" opened="false">
+    <a class="logo" routerLink="/">🧑‍⚕️ Doctors App</a>
+    <a mat-button routerLink="/">Home</a>
+    <a mat-button routerLink="/doctors">Doctors</a>
+    <a mat-button routerLink="/about">About</a>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <a class="logo" routerLink="/">🧑‍⚕️ Doctors App</a>
+      @if (!isHandset) {
+      <a mat-button routerLink="/">Home</a>
+      <a mat-button routerLink="/doctors">Doctors</a>
+      <a mat-button routerLink="/about">About</a>
+      } @else {
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Menu icon"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      }
+    </mat-toolbar>
+
+    <!-- Main content -->
+    <div class="container">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

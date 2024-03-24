@@ -1,0 +1,74 @@
+@use "@angular/material" as mat;
+$mobile-breakpoint: 600px;
+
+.toggle-group {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: 1rem 0 0.5rem 0;
+  span {
+    margin-right: 0.5rem;
+    font-weight: 500;
+  }
+}
+
+.table-wrapper {
+  max-width: 100%;
+  overflow: auto;
+}
+
+.mat-row {
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover {
+  cursor: pointer;
+  .mat-mdc-cell {
+    background-color: mat.get-color-from-palette(mat.$indigo-palette, 50);
+  }
+}
+
+.table-legend {
+  display: flex;
+  align-items: baseline;
+  justify-content: end;
+  margin-top: 1rem;
+
+  b {
+    font-weight: 600;
+  }
+
+  .badge {
+    margin: auto 1rem;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-button {
+  width: 100%;
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .mat-mdc-row {
+    font-size: 12px;
+
+    .mat-mdc-cell {
+      width: max-content;
+      white-space: nowrap;
+      &:first-child {
+        white-space: nowrap;
+      }
+      &:nth-last-child(2) {
+        display: none;
+      }
+    }
+  }
+  .mat-mdc-header-row .mat-mdc-header-cell:nth-last-child(2) {
+    display: none;
+  }
+}
