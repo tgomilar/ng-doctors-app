@@ -1,1 +1,69 @@
-<p>doctor-detail works!</p>
+<a routerLink="/doctors" class="link">
+  <mat-icon>arrow_back</mat-icon> Back to doctors
+</a>
+
+<div class="doctor-details">
+  <div class="emoji hide-md">{{ randomEmoji }}</div>
+  <div>
+    <h1>
+      <span class="show-md show-sm">{{ randomEmoji }}</span>
+      {{ doctor.name }} <br />
+      <b>{{ doctor.username }}</b>
+    </h1>
+    <p><mat-icon matListItemIcon>email</mat-icon> {{ doctor.email }}</p>
+    <p><mat-icon matListItemIcon>phone</mat-icon> {{ doctor.phone }}</p>
+    <p><mat-icon matListItemIcon>language</mat-icon> {{ doctor.website }}</p>
+    @if(doctor.company){
+    <p>
+      <mat-icon matListItemIcon>business</mat-icon>Company:
+      {{ doctor.company.name }}
+    </p>
+
+    } @if(doctor.address){
+    <p>
+      <mat-icon matListItemIcon>home</mat-icon> Address:
+      {{ doctor.address.street }} {{ doctor.address.suite }},
+      {{ doctor.address.zipcode }} {{ doctor.address.city }}
+    </p>
+
+    }
+  </div>
+</div>
+@if (tasks) {
+<div class="tasks">
+  <h2>Tasks</h2>
+  <mat-divider></mat-divider>
+  <mat-list>
+    <div class="tasks-completed">
+      <div mat-subheader>Completed</div>
+      @if (completedTasks.length > 0) { @for (task of completedTasks; track
+      task) {
+      <mat-list-item class="break-line">
+        <mat-icon matListItemIcon>check_circle</mat-icon>
+        <div matListItemTitle>
+          <span>{{ task.id }}</span> - {{ task.title }}
+        </div>
+      </mat-list-item>
+      } } @else {
+      <p>No completed tasks</p>
+      }
+    </div>
+    <div class="tasks-uncompleted">
+      <div mat-subheader>Uncompleted</div>
+      @if (uncompletedTasks.length > 0) { @for (task of uncompletedTasks; track
+      task) {
+      <mat-list-item>
+        <mat-icon matListItemIcon>cancel</mat-icon>
+        <div matListItemTitle class="break-line">
+          <span>{{ task.id }}</span> - {{ task.title }}
+        </div>
+      </mat-list-item>
+      } } @else {
+      <p>No uncompleted tasks</p>
+      }
+    </div>
+  </mat-list>
+</div>
+} @else {
+<p>Loading tasks...</p>
+}

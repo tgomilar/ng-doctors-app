@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Doctor } from '../models/doctor';
 import { DoctorService } from '../services/doctor.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';

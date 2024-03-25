@@ -1,0 +1,14 @@
+@use "@angular/material" as mat;
+
+$pink-50: mat.get-color-from-palette(mat.$indigo-palette, 50);
+$pink-100: mat.get-color-from-palette(mat.$indigo-palette, 100);
+$pink-300: mat.get-color-from-palette(mat.$indigo-palette, 300);
+$pink-500: mat.get-color-from-palette(mat.$indigo-palette, 500);
+$pink-700: mat.get-color-from-palette(mat.$indigo-palette, 700);
+$pink-800: mat.get-color-from-palette(mat.$indigo-palette, 800);
+
+$screen-sm: 640px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1280px;
+$screen-2xl: 1536px;

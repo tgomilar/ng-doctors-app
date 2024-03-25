@@ -17,7 +17,7 @@ export class DoctorService {
   }
 
   getDoctorById(id: number): Observable<Doctor> {
-    return this.http.get<Doctor>(`${this.apiUrl}/${id}`);
+    return this.http.get<Doctor>(`${this.apiUrl}/users/${id}`);
   }
 
   getDoctorTasks(id: number): Observable<Task[]> {

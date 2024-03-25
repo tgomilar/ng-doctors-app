@@ -1,0 +1,63 @@
+@use "../../scss/variables" as vars;
+
+h1 {
+  b {
+    font-size: 1rem;
+    margin-right: 1rem;
+    color: vars.$pink-300;
+  }
+
+  @media screen and (max-width: vars.$screen-md) {
+    .show-sm {
+      display: inline !important;
+    }
+  }
+}
+
+.doctor-details {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-gap: 2rem;
+  margin-bottom: 4rem;
+
+  @media screen and (max-width: vars.$screen-md) {
+    grid-template-columns: 1fr;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-icon {
+    color: vars.$pink-300;
+    margin-right: 0.5rem;
+  }
+}
+
+.emoji {
+  width: 8vw;
+  height: 8vw;
+  font-size: 8vw;
+  line-height: 8vw;
+  margin: auto;
+}
+
+.mat-mdc-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media screen and (max-width: vars.$screen-lg) {
+    display: block;
+  }
+
+  .mat-mdc-subheader {
+    margin-left: 0;
+    color: vars.$pink-700;
+  }
+}
+
+.tasks-completed .mat-icon {
+  color: vars.$pink-300;
+}

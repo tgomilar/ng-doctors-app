@@ -1,50 +1,61 @@
-@use "@angular/material" as mat;
-$mobile-breakpoint: 600px;
+@use "./scss/variables" as vars;
 
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+h1 {
+  font-weight: 600 !important;
+
+  @media screen and (min-width: vars.$screen-md) {
+    margin-top: 2rem !important;
+  }
+}
+
 h1,
 h2,
 h3 {
-  color: mat.get-color-from-palette(mat.$indigo-palette, 800);
+  color: vars.$pink-700;
 }
 
 .link {
-  color: mat.get-color-from-palette(mat.$indigo-palette, 700);
+  color: vars.$pink-700;
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
 }
 
 .mat-button-toggle-checked {
-  background-color: mat.get-color-from-palette(
-    mat.$indigo-palette,
-    50
-  ) !important;
+  background-color: vars.$pink-50 !important;
 }
 
 .logo {
   text-decoration: none;
   margin-right: auto;
   margin-left: 0;
-  color: mat.get-color-from-palette(mat.$indigo-palette, 700);
+  color: vars.$pink-700;
 }
+
 .sidenav-container {
   height: 100vh;
 }
+
 mat-sidenav {
   padding: 1rem;
-  > div {
+
+  >div {
     display: flex;
     flex-direction: column;
   }
+
   .logo {
     margin-bottom: 1rem;
     font-weight: bold;
@@ -55,7 +66,64 @@ mat-toolbar {
   .mat-toolbar-row {
     padding: 0 1rem;
   }
+
   .logo {
-    color: mat.get-color-from-palette(mat.$indigo-palette, 100);
+    color: vars.$pink-100;
+  }
+}
+
+.hide-sm {
+  @media (max-width: vars.$screen-sm) {
+    display: none !important;
+  }
+}
+
+.hide-md {
+  @media (max-width: vars.$screen-md) {
+    display: none !important;
+  }
+}
+
+.hide-lg {
+  @media (max-width: vars.$screen-lg) {
+    display: none !important;
+  }
+}
+
+.hide-xl {
+  @media (max-width: vars.$screen-xl) {
+    display: none !important;
+  }
+}
+
+.show-sm {
+  display: none !important;
+
+  @media (max-width: vars.$screen-sm) {
+    display: block !important;
+  }
+}
+
+.show-md {
+  display: none !important;
+
+  @media screen and (max-width: vars.$screen-md) {
+    display: block !important;
+  }
+}
+
+.show-lg {
+  display: none !important;
+
+  @media screen and (max-width: vars.$screen-lg) {
+    display: block !important;
+  }
+}
+
+.show-xl {
+  display: none !important;
+
+  @media screen and (max-width: vars.$screen-xl) {
+    display: block !important;
   }
 }

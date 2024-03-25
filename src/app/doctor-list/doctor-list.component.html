@@ -3,9 +3,9 @@
 <div class="toggle-group">
   <span>Toggle view: </span>
   <mat-button-toggle-group
-    [value]="viewStyle"
     name="viewStyle"
     aria-label="View Style"
+    [value]="viewStyle"
     (click)="toggleView()"
   >
     <mat-button-toggle value="table">Table</mat-button-toggle>
@@ -16,43 +16,43 @@
 @if (isTableView) {
 <h3>Table view</h3>
 <div class="table-wrapper">
-  <table mat-table [dataSource]="dataSource" matSort class="table">
+  <table mat-table matSort class="table" [dataSource]="dataSource">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let item">
+      <th *matHeaderCellDef mat-header-cellmat-sort-header>Name</th>
+      <td *matCellDef="let item" mat-cell>
         <span
-          matBadge="{{ uncompletedTasks(item) }}"
           matBadgeColor="warn"
           matBadgeOverlap="false"
+          matBadge="{{ uncompletedTasks(item) }}"
         >
           <b>{{ item.name }} </b>
         </span>
       </td>
     </ng-container>
     <ng-container matColumnDef="tasks">
-      <th mat-header-cell *matHeaderCellDef>Completed Tasks</th>
-      <td mat-cell *matCellDef="let item">
+      <th *matHeaderCellDef>mat-header-cellCompleted Tasks</th>
+      <td *matCellDef="let item" mat-cell>
         {{ completedTasks(item) }} / {{ item.tasks?.length }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
-      <td mat-cell *matCellDef="let item" (click)="$event.stopPropagation()">
-        <a href="mailto:{{ item.email }}" class="link">{{ item.email }}</a>
+      <th *matHeaderCellDef mat-header-cellmat-sort-header>Email</th>
+      <td *matCellDef="let item" mat-cell (click)="$event.stopPropagation()">
+        <a class="link" href="mailto:{{ item.email }}">{{ item.email }}</a>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
-      <td mat-cell *matCellDef="let item" (click)="$event.stopPropagation()">
-        <a href="tel:{{ item.phone }}" class="link">{{ item.phone }}</a>
+      <th *matHeaderCellDef mat-header-cellmat-sort-header>Phone</th>
+      <td *matCellDef="let item" mat-cell (click)="$event.stopPropagation()">
+        <a class="link" href="tel:{{ item.phone }}">{{ item.phone }}</a>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="address">
-      <th mat-header-cell *matHeaderCellDef>Address</th>
-      <td mat-cell *matCellDef="let item">
+      <th *matHeaderCellDef>mat-header-cellAddress</th>
+      <td *matCellDef="let item" mat-cell>
         @if (item.address) {
         {{ item.address.street }} {{ item.address.suite }},
         {{ item.address.zipcode }} {{ item.address.city }} }
@@ -60,18 +60,18 @@
     </ng-container>
 
     <ng-container matColumnDef="details">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Details</th>
-      <td mat-cell *matCellDef="let item">
+      <th *matHeaderCellDef mat-header-cellmat-sort-header>Details</th>
+      <td *matCellDef="let item" mat-cell>
         <button mat-stroked-button color="primary" (click)="onRowClick(item)">
           Read more
         </button>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="tableHeader"></tr>
+    <tr *matHeaderRowDef="tableHeader" mat-header-row></tr>
     <tr
-      mat-row
       *matRowDef="let row; columns: tableHeader"
+      mat-row
       (click)="onRowClick(row)"
     ></tr>
   </table>
@@ -99,10 +99,10 @@
     <mat-card-content>
       <p>
         <b>Email: </b>
-        <a href="mailto:{{ item.email }}" class="link">{{ item.email }}</a
+        <a class="link" href="mailto:{{ item.email }}">{{ item.email }}</a
         ><br />
         <b>Phone: </b>
-        <a href="tel:{{ item.phone }}" class="link">{{ item.phone }}</a
+        <a class="link" href="tel:{{ item.phone }}">{{ item.phone }}</a
         ><br />
         @if (item.address) {
         <b>Address:</b>
