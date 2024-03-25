@@ -28,6 +28,8 @@ export class DoctorDetailComponent {
   tasks: Task[] = [];
   completedTasks: Task[] = [];
   uncompletedTasks: Task[] = [];
+  completedTasksPercentage: string = '';
+  uncompletedTasksPercentage: string = '';
   randomEmoji: string = '';
   doctorEmojis: string[] = [
     '👨‍⚕️',
@@ -57,12 +59,20 @@ export class DoctorDetailComponent {
         this.tasks = tasks;
         this.completedTasks = this.tasks.filter((task) => task.completed);
         this.uncompletedTasks = this.tasks.filter((task) => !task.completed);
+        this.completedTasksPercentage =
+          this.doctorService.calculateCompletionPercentage(
+            this.completedTasks.length,
+            this.tasks.length
+          );
+        this.uncompletedTasksPercentage =
+          this.doctorService.calculateCompletionPercentage(
+            this.uncompletedTasks.length,
+            this.tasks.length
+          );
       });
     }
     this.randomEmoji = this.getRandomDoctorEmoji();
   }
-
-  // ngOnInit(): void {}
 
   getRandomDoctorEmoji(): string {
     const randomIndex = Math.floor(Math.random() * this.doctorEmojis.length);

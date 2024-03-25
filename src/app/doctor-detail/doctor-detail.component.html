@@ -10,9 +10,20 @@
       {{ doctor.name }} <br />
       <b>{{ doctor.username }}</b>
     </h1>
-    <p><mat-icon matListItemIcon>email</mat-icon> {{ doctor.email }}</p>
-    <p><mat-icon matListItemIcon>phone</mat-icon> {{ doctor.phone }}</p>
-    <p><mat-icon matListItemIcon>language</mat-icon> {{ doctor.website }}</p>
+    <p>
+      <mat-icon matListItemIcon>email</mat-icon>
+      <a class="link" href="mailto:{{ doctor.phone }}">{{ doctor.email }}</a>
+    </p>
+    <p>
+      <mat-icon matListItemIcon>phone</mat-icon>
+      <a class="link" href="tel:{{ doctor.phone }}">{{ doctor.phone }}</a>
+    </p>
+    <p>
+      <mat-icon matListItemIcon>language</mat-icon>
+      <a class="link" href="{{ doctor.website }}" target="_blank">{{
+        doctor.website
+      }}</a>
+    </p>
     @if(doctor.company){
     <p>
       <mat-icon matListItemIcon>business</mat-icon>Company:
@@ -29,9 +40,23 @@
     }
   </div>
 </div>
+
 @if (tasks) {
 <div class="tasks">
   <h2>Tasks</h2>
+  <div class="tasks-percentage">
+    <p>
+      <mat-icon matListItemIcon class="icon-completed">check_circle</mat-icon>
+      Completed tasks:
+      {{ completedTasksPercentage }}
+      <i>({{ completedTasks.length }}/{{ tasks.length }})</i>
+    </p>
+    <p>
+      <mat-icon matListItemIcon>cancel</mat-icon> Unompleted tasks:
+      {{ uncompletedTasksPercentage }}
+      <i>({{ uncompletedTasks.length }}/{{ tasks.length }})</i>
+    </p>
+  </div>
   <mat-divider></mat-divider>
   <mat-list>
     <div class="tasks-completed">

@@ -27,4 +27,12 @@ export class DoctorService {
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(`${this.apiUrl}/todos`);
   }
+
+  calculateCompletionPercentage(tasks: number, allTasks: number): string {
+    if (allTasks === 0) {
+      return '0%';
+    }
+    const percentage = (tasks / allTasks) * 100;
+    return `${percentage.toFixed(0)}%`;
+  }
 }

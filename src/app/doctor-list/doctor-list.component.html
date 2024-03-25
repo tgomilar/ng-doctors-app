@@ -1,5 +1,10 @@
-<h2>Doctor list</h2>
-
+@if(!hideH1) {
+<h1>Doctor list</h1>
+<p>
+  This is a list displaying essential information about doctors and their task
+  completion status.
+</p>
+}
 <div class="toggle-group">
   <span>Toggle view: </span>
   <mat-button-toggle-group
@@ -18,7 +23,7 @@
 <div class="table-wrapper">
   <table mat-table matSort class="table" [dataSource]="dataSource">
     <ng-container matColumnDef="name">
-      <th *matHeaderCellDef mat-header-cellmat-sort-header>Name</th>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Name</th>
       <td *matCellDef="let item" mat-cell>
         <span
           matBadgeColor="warn"
@@ -30,28 +35,28 @@
       </td>
     </ng-container>
     <ng-container matColumnDef="tasks">
-      <th *matHeaderCellDef>mat-header-cellCompleted Tasks</th>
+      <th *matHeaderCellDef mat-header-cell>Completed Tasks</th>
       <td *matCellDef="let item" mat-cell>
         {{ completedTasks(item) }} / {{ item.tasks?.length }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="email">
-      <th *matHeaderCellDef mat-header-cellmat-sort-header>Email</th>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Email</th>
       <td *matCellDef="let item" mat-cell (click)="$event.stopPropagation()">
         <a class="link" href="mailto:{{ item.email }}">{{ item.email }}</a>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="phone">
-      <th *matHeaderCellDef mat-header-cellmat-sort-header>Phone</th>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Phone</th>
       <td *matCellDef="let item" mat-cell (click)="$event.stopPropagation()">
         <a class="link" href="tel:{{ item.phone }}">{{ item.phone }}</a>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="address">
-      <th *matHeaderCellDef>mat-header-cellAddress</th>
+      <th *matHeaderCellDef mat-header-cell>Address</th>
       <td *matCellDef="let item" mat-cell>
         @if (item.address) {
         {{ item.address.street }} {{ item.address.suite }},
@@ -60,7 +65,7 @@
     </ng-container>
 
     <ng-container matColumnDef="details">
-      <th *matHeaderCellDef mat-header-cellmat-sort-header>Details</th>
+      <th *matHeaderCellDef mat-header-cell>Details</th>
       <td *matCellDef="let item" mat-cell>
         <button mat-stroked-button color="primary" (click)="onRowClick(item)">
           Read more

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Doctor } from '../models/doctor';
 import { DoctorService } from '../services/doctor.service';
@@ -26,6 +26,8 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './doctor-list.component.scss',
 })
 export class DoctorListComponent implements AfterViewInit {
+  @Input() hideH1: boolean = false;
+
   tableHeader: string[] = [
     'name',
     'tasks',
