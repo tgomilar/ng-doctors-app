@@ -1,11 +1,11 @@
-@use "@angular/material" as mat;
-$mobile-breakpoint: 600px;
+@use "../../scss/variables" as vars;
 
 .toggle-group {
   display: flex;
   align-items: center;
   justify-content: end;
   margin: 1rem 0 0.5rem 0;
+
   span {
     margin-right: 0.5rem;
     font-weight: 500;
@@ -21,10 +21,16 @@ $mobile-breakpoint: 600px;
   cursor: pointer;
 }
 
+.mat-mdc-cell b {
+  font-weight: 500;
+
+}
+
 .mat-mdc-row:hover {
   cursor: pointer;
+
   .mat-mdc-cell {
-    background-color: mat.get-color-from-palette(mat.$indigo-palette, 50);
+    background-color: vars.$pink-50;
   }
 }
 
@@ -53,21 +59,24 @@ $mobile-breakpoint: 600px;
   width: 100%;
 }
 
-@media (max-width: $mobile-breakpoint) {
+@media (max-width: vars.$screen-lg) {
   .mat-mdc-row {
     font-size: 12px;
 
     .mat-mdc-cell {
       width: max-content;
       white-space: nowrap;
+
       &:first-child {
         white-space: nowrap;
       }
+
       &:nth-last-child(2) {
         display: none;
       }
     }
   }
+
   .mat-mdc-header-row .mat-mdc-header-cell:nth-last-child(2) {
     display: none;
   }

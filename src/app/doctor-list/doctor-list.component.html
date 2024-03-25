@@ -1,4 +1,4 @@
-@if(!hideH1) {
+@if(!hideTitle) {
 <h1>Doctor list</h1>
 <p>
   This is a list displaying essential information about doctors and their task
@@ -18,8 +18,9 @@
   </mat-button-toggle-group>
 </div>
 
-@if (isTableView) {
-<h3>Table view</h3>
+@if (isTableView) { @if(!hideTitle) {
+<h2>Table view</h2>
+}
 <div class="table-wrapper">
   <table mat-table matSort class="table" [dataSource]="dataSource">
     <ng-container matColumnDef="name">
@@ -90,8 +91,9 @@
   ></span>
   <span>Number of tasks that are not completed</span>
 </div>
-} @else {
-<h3>Card view</h3>
+} @else { @if(!hideTitle) {
+<h2>Card view</h2>
+}
 <div class="cards">
   @for (item of doctors; track item.id;) {
   <mat-card class="card" (click)="onRowClick(item)">
@@ -114,6 +116,10 @@
         {{ item.address.street }} {{ item.address.suite }},
         {{ item.address.zipcode }} {{ item.address.city }}
         }
+      </p>
+      <p>
+        <b>Completed tasks:</b>
+        {{ completedTasks(item) }} / {{ item.tasks?.length }}
       </p>
     </mat-card-content>
     <mat-card-actions>

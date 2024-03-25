@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ViewChild, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Doctor } from '../models/doctor';
 import { DoctorService } from '../services/doctor.service';
-import { HttpClientModule } from '@angular/common/http';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -14,7 +13,6 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-doctor-list',
   standalone: true,
   imports: [
-    HttpClientModule,
     MatTableModule,
     MatSortModule,
     MatBadgeModule,
@@ -26,7 +24,7 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './doctor-list.component.scss',
 })
 export class DoctorListComponent implements AfterViewInit {
-  @Input() hideH1: boolean = false;
+  @Input() hideTitle: boolean = false;
 
   tableHeader: string[] = [
     'name',
@@ -41,11 +39,7 @@ export class DoctorListComponent implements AfterViewInit {
   isTableView: boolean = true;
   viewStyle: string = 'table';
 
-  constructor(private doctorService: DoctorService, private router: Router) {}
-
-  @ViewChild(MatSort) sort = new MatSort();
-
-  ngOnInit(): void {
+  constructor(private doctorService: DoctorService, private router: Router) {
     this.doctorService.getDoctors().subscribe((doctors) => {
       this.doctors = doctors;
       this.doctors.forEach((doctor) => {
@@ -56,6 +50,8 @@ export class DoctorListComponent implements AfterViewInit {
       this.dataSource.data = this.doctors;
     });
   }
+
+  @ViewChild(MatSort) sort = new MatSort();
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;

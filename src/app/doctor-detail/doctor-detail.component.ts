@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 import { DoctorService } from '../services/doctor.service';
 import { Doctor } from '../models/doctor';
 import { Task } from '../models/task';
@@ -13,13 +12,7 @@ import { MatListModule } from '@angular/material/list';
 @Component({
   selector: 'app-doctor-detail',
   standalone: true,
-  imports: [
-    HttpClientModule,
-    RouterModule,
-    MatDividerModule,
-    MatIconModule,
-    MatListModule,
-  ],
+  imports: [RouterModule, MatDividerModule, MatIconModule, MatListModule],
   templateUrl: './doctor-detail.component.html',
   styleUrl: './doctor-detail.component.scss',
 })
