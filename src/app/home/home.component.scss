@@ -1,94 +1,40 @@
-@use "@angular/material" as mat;
+@use "../../scss/variables" as vars;
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+
+  @media screen and (max-width: vars.$screen-md) {
+    font-size: 2rem;
+  }
+}
+
+.intro {
+  display: grid;
+  gap: 2rem;
+  margin: 4rem 0;
+
+  @media screen and (min-width: vars.$screen-md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 .emojis {
-  font-size: 80px;
-  line-height: 80px;
-  position: relative;
-
-  height: 80px;
-  /* Adjust as needed */
-
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  font-size: 3rem;
+  line-height: 3rem;
+  height: 3rem;
   padding: 1rem;
-  background: mat.get-color-from-palette(mat.$indigo-palette, 50);
+  background: vars.$pink-50;
+  border-radius: var(--mdc-outlined-button-container-shape);
 
-  border-radius: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto 0;
 
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-
-  .emoji {
-    // position: absolute;
-    // width: 100%;
-    // height: 100%;
-    opacity: 0.8;
-    animation: fadeInOut 6s infinite;
+  @media screen and (min-width: vars.$screen-md) {
+    font-size: 5rem;
+    line-height: 5rem;
+    height: 5rem;
   }
-
-  .emoji:nth-child(1) {
-    animation-delay: 0s;
-  }
-
-  .emoji:nth-child(2) {
-    animation-delay: 2s;
-  }
-
-  .emoji:nth-child(3) {
-    animation-delay: 4s;
-  }
-
-  .emoji:nth-child(4) {
-    animation-delay: 6s;
-  }
-}
-
-.container {
-  position: relative;
-  width: 200px;
-  /* Adjust as needed */
-  height: 50px;
-  /* Adjust as needed */
-  overflow: hidden;
-}
-
-.fade-element {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  animation: fadeInOut 8s infinite;
-  /* Adjust total animation time as needed */
-}
-
-@keyframes fadeInOut {
-
-  0%,
-  100% {
-    opacity: 0.8;
-  }
-
-  15%,
-  50% {
-    opacity: 1;
-  }
-
-  /* Adjust timing to control fade duration */
-}
-
-#element1 {
-  animation-delay: 0s;
-}
-
-#element2 {
-  animation-delay: 2s;
-}
-
-/* Each element starts 2 seconds after the previous one */
-#element3 {
-  animation-delay: 4s;
-}
-
-#element4 {
-  animation-delay: 6s;
 }
