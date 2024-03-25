@@ -1,0 +1,55 @@
+@if(!hideTitle) {
+<h1>Task list</h1>
+<p>This is a list displaying tasks and assigned doctors</p>
+}
+
+<div class="table-wrapper">
+  <table mat-table class="table" [dataSource]="tasks">
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell>Id</th>
+      <td *matCellDef="let item" mat-cell>
+        {{ item.id }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <th *matHeaderCellDef mat-header-cell>Title</th>
+      <td *matCellDef="let item" mat-cell>
+        <b>{{ item.title }}</b>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th *matHeaderCellDef mat-header-cell>Completed</th>
+      <td *matCellDef="let item" mat-cell>
+        @if(item.completed) {
+        <mat-icon matListItemIcon class="icon-completed">check_circle</mat-icon>
+        } @else {
+        <mat-icon matListItemIcon>cancel</mat-icon>
+        }
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="doctor">
+      <th *matHeaderCellDef mat-header-cell>Doctor</th>
+      <td *matCellDef="let item" mat-cell>
+        @if(item.doctor) {
+        {{ item.doctor.name }}
+        }
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+      <th *matHeaderCellDef mat-header-cell>Details</th>
+      <td *matCellDef="let item" mat-cell>
+        <button mat-stroked-button color="primary" (click)="onRowClick(item)">
+          Doctor's profile
+        </button>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="tableHeader" mat-header-row></tr>
+    <tr
+      *matRowDef="let row; columns: tableHeader"
+      mat-row
+      (click)="onRowClick(row)"
+    ></tr>
+  </table>
+</div>

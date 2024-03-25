@@ -25,6 +25,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class AppComponent {
   isHandset = false;
+  currentYear = new Date().getFullYear();
+
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
       .observe([Breakpoints.Handset])
@@ -32,5 +34,4 @@ export class AppComponent {
         this.isHandset = result.matches;
       });
   }
-  title = 'doctors-app';
 }

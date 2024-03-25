@@ -12,26 +12,8 @@
   }
 }
 
-.table-wrapper {
-  max-width: 100%;
-  overflow: auto;
-}
-
-.mat-row {
-  cursor: pointer;
-}
-
-.mat-mdc-cell b {
-  font-weight: 500;
-
-}
-
-.mat-mdc-row:hover {
-  cursor: pointer;
-
-  .mat-mdc-cell {
-    background-color: vars.$pink-50;
-  }
+.mat-button-toggle-checked {
+  background-color: vars.$pink-50 !important;
 }
 
 .table-legend {
@@ -60,20 +42,13 @@
 }
 
 @media (max-width: vars.$screen-lg) {
-  .mat-mdc-row {
-    font-size: 12px;
-
-    .mat-mdc-cell {
-      width: max-content;
+  .mat-mdc-row .mat-mdc-cell {
+    &:first-child {
       white-space: nowrap;
+    }
 
-      &:first-child {
-        white-space: nowrap;
-      }
-
-      &:nth-last-child(2) {
-        display: none;
-      }
+    &:nth-last-child(2) {
+      display: none;
     }
   }
 

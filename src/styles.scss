@@ -33,10 +33,6 @@ h3 {
   }
 }
 
-.mat-button-toggle-checked {
-  background-color: vars.$pink-50 !important;
-}
-
 .logo {
   text-decoration: none;
   margin-right: auto;
@@ -70,6 +66,51 @@ mat-toolbar {
   .logo {
     color: vars.$pink-100;
   }
+}
+
+.table-wrapper {
+  max-width: 100%;
+  overflow: auto;
+}
+
+.mat-row {
+  cursor: pointer;
+}
+
+.mat-mdc-cell b {
+  font-weight: 500;
+}
+
+.mat-mdc-row:hover {
+  cursor: pointer;
+
+  .mat-mdc-cell {
+    background-color: vars.$pink-50;
+  }
+}
+
+@media (max-width: vars.$screen-lg) {
+  .mat-mdc-row {
+    font-size: 12px;
+
+    .mat-mdc-cell {
+      width: max-content;
+      white-space: nowrap;
+    }
+  }
+}
+
+.container {
+  padding: 1rem;
+  max-width: 1536px;
+  margin: 0 auto;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
 }
 
 .hide-sm {

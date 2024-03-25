@@ -1,0 +1,18 @@
+@use "../../scss/variables" as vars;
+
+p {
+  margin-bottom: 2rem;
+}
+
+.table-wrapper {
+  max-height: 800px;
+}
+
+.mat-icon {
+  color: var(--mdc-list-list-item-leading-icon-color);
+  margin-right: 0.5rem;
+
+  &.icon-completed {
+    color: vars.$pink-300;
+  }
+}
