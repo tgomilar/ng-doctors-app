@@ -14,4 +14,5 @@ export const routes: Routes = [
   },
   { path: 'tasks', component: TaskListComponent },
   { path: 'about', component: AboutComponent },
+  { path: '**', component: HomeComponent },
 ];

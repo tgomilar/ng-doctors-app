@@ -12,6 +12,11 @@ export class DoctorService {
 
   constructor(private http: HttpClient) {}
 
+  // async getDoctors(): Promise<Doctor[]> {
+  //   const data = await fetch(`${this.apiUrl}/users`);
+  //   return (await data.json()) ?? [];
+  // }
+
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(`${this.apiUrl}/users`);
   }

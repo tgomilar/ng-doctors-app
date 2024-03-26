@@ -38,6 +38,7 @@ export class DoctorListComponent implements AfterViewInit {
   dataSource: MatTableDataSource<Doctor> = new MatTableDataSource();
   isTableView: boolean = true;
   viewStyle: string = 'table';
+  testDoctors: Doctor[] = [];
 
   constructor(private doctorService: DoctorService, private router: Router) {
     this.doctorService.getDoctors().subscribe((doctors) => {

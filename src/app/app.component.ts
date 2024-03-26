@@ -24,6 +24,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  title = 'Doctors App';
   isHandset = false;
   currentYear = new Date().getFullYear();
 

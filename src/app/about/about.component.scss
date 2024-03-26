@@ -1,0 +1,11 @@
+@use "../../scss/variables" as vars;
+
+.about-wrapper {
+  max-width: vars.$screen-md;
+  margin: 0 auto;
+}
+
+
+a {
+  @extend .link !optional;
+}
